@@ -1,5 +1,5 @@
 # Computer Systems & Networks Assignment 2
-# *BabyTron 2020* - IoT Webcam & Humidity Control System
+*BabyTron 2020* - IoT Webcam & Humidity Control System #
 
 #### Student Name: *Naoise O'Sullivan*
 #### Student ID: *20091403*
