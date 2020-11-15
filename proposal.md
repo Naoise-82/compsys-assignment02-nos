@@ -18,9 +18,9 @@ I am also proposing to control the power to a simple humidifier in the room usin
 
 ### Possible Software Tools, Languages, Technologies & Protocols
 * Visual Studio Code
+* Glitch
 * Python
 * Node.js
-* Glitch
 * Raspi-Live (video streaming)
 * IFTTT
 * Thingspeak
