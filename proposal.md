@@ -1,8 +1,9 @@
 # IoT Webcam & Humidity Controller
 
-#### Student Name: *Naoise O'Sullivan*   Student ID: *20091403*
+#### Student Name: *Naoise O'Sullivan*
+#### Student ID: *20091403*
 
-My proposal for Assignment 02 is to build an IoT-based baby monitor for my newborn baby that uses a motion sensor to activate video streaming via the Pi Camera Module V2, ideally over the internet, but at least over the home network, viewable on a webpage. Although sound is a more obvious trigger for activiting the camera, we always hear her when she starts crying from across the house (she's a loud one!), but motion sensing will give us an indication of whether she's sleeping restlessly before she wakes and starts crying.
+My proposal for Assignment 02 is to build an IoT-based baby monitor for my newborn baby that uses a motion sensor to activate video streaming via the Pi Camera Module V2, ideally over the Internet, but at least over the home network, viewable on a webpage. Although sound is a more obvious trigger for activiting the camera, we always hear her when she starts crying from across the house (she's a loud one!), but motion sensing will give us an indication of whether she's sleeping restlessly before she wakes and starts crying.
 
 I am also proposing to control the power to a simple humidifier in the room using the SenseHAT's humidity sensor and an IFTTT compatible wifi smart socket.
 
@@ -15,12 +16,15 @@ I am also proposing to control the power to a simple humidifier in the room usin
 * PIR Motion Sensor Module
 * Teckin SP23 Wifi Smart Plug (IFFT Compatible)
 
-### Software Tools and Technologies
-* Python scripting for monitoring/controlling the motion & humidity senors
-* Node.js & Raspi-live for the video streaming & web app (although it may change depending on what we cover in Week 09)
-* Glitch for hosting the web app (if possible)
-* IFTTT, Thingspeak & an MQTT hosting service for handling IoT data/messaging
+### Possible Software Tools, Languages, Technologies & Protocols
+* Visual Studio Code
+* Python
+* Node.js
+* Glitch
+* Raspi-Live (video streaming)
+* IFTTT
+* Thingspeak
+* MQTT
 
 ## Project Repository
 https://github.com/Naoise-82/compsys-assignment02-nos
-
