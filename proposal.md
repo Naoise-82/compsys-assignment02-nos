@@ -22,6 +22,5 @@ I am also proposing to control the power to a simple humidifier in the room usin
 * IFTTT, Thingspeak & an MQTT hosting service for handling IoT data/messaging
 
 ## Project Repository
-
-
+https://github.com/Naoise-82/compsys-assignment02-nos
 
