@@ -65,6 +65,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.end_headers()
             try:
                 while True:
+                    # don't activate the video stream until the motion senor is activated
                     pir.wait_for_motion()
                     with output.condition:
                         output.condition.wait()
