@@ -46,21 +46,22 @@ bar = 1
 while True:
     blynk.run()
 
-    # set foo to msth the PIR's activity
+    # set foo to match the PIR's activity
     if pir.value == 0:
         foo = 0
-        # sense.clear(r)
+        # show that the camra is off via the LED matrix
         sense.load_image("images/red_x.bmp")
     else:
         foo = 1
-        # sense.clear(g)
+        # show the camera is streaming via the LED matrix
         sense.load_image("images/green_tick.bmp")
 
-    #  motion detected, send a nitification to the phone, and
+    # motion detected, send a notification to the blynk app, and update bar
     if foo == 1 & bar == 1:
         print("Motion Detected!")
         blynk.notify("Motion Detected!")
         bar = 2
     
+    # reset foo and bar's relative initial states
     if foo == 0:
        bar = 1

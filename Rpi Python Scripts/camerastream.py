@@ -2,6 +2,9 @@
 # Source code from the official PiCamera package
 # http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming
 
+# I have left this code almost completely unaltered, save for the motion sensor
+# control code.
+
 import io
 import picamera
 import logging
@@ -9,6 +12,7 @@ import socketserver
 from threading import Condition
 from http import server
 
+# improt the motion sensor to control streaming
 from gpiozero import MotionSensor
 from time import sleep
 
@@ -65,8 +69,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.end_headers()
             try:
                 while True:
-                    # don't activate the video stream until the motion senor is activated
-                    pir.wait_for_motion()
+                    pir.wait_for_motion() # don't activate the video stream until the motion sensor is activated
                     with output.condition:
                         output.condition.wait()
                         frame = output.frame
@@ -92,6 +95,7 @@ with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
     output = StreamingOutput()
     #Uncomment the next line to change your Pi's Camera rotation (in degrees)
     #camera.rotation = 90:
+    camera.exposure_mode = "night"
     camera.start_recording(output, format='mjpeg')
     try:
         address = ('', 8000)
