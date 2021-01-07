@@ -2,8 +2,8 @@
 # Source code from the official PiCamera package
 # http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming
 
-# I have left this code almost completely unaltered, save for the motion sensor
-# control code.
+# I have left this code almost completely unaltered, save for the PIR motion sensor
+# control code on lines 15-19 and 72, and on lines 99 & 100 to alter the exposure mode
 
 import io
 import picamera
@@ -12,7 +12,7 @@ import socketserver
 from threading import Condition
 from http import server
 
-# improt the motion sensor to control streaming
+# import the motion sensor to control streaming
 from gpiozero import MotionSensor
 from time import sleep
 
@@ -21,10 +21,10 @@ pir = MotionSensor(17)
 PAGE="""\
 <html>
 <head>
-<title>Raspberry Pi - Surveillance Camera</title>
+<title>BabyTron 2020 - Camera Feed</title>
 </head>
 <body>
-<center><h1>Raspberry Pi - Surveillance Camera</h1></center>
+<center><h1>BabyTron 2020 - Camera Feed</h1></center>
 <center><img src="stream.mjpg" width="640" height="480"></center>
 </body>
 </html>
@@ -95,8 +95,12 @@ with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
     output = StreamingOutput()
     #Uncomment the next line to change your Pi's Camera rotation (in degrees)
     #camera.rotation = 90:
-    camera.exposure_mode = "night"
+
+    # Change the exposure to adapt better to low light settings
+    camera.exposure_mode = "nightpreview"
+
     camera.start_recording(output, format='mjpeg')
+    print(camera.exposure_mode)
     try:
         address = ('', 8000)
         server = StreamingServer(address, StreamingHandler)

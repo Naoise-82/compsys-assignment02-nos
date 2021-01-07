@@ -32,12 +32,14 @@ def read_virtual_pin_handler(pin):
     blynk.virtual_write(1, temp)
     
     # lower temp threshold reached, activate the smart socket to run the heater
-    if temp < 22.7:
+    if temp < 22.5:
         requests.post("https://maker.ifttt.com/trigger/temp_too_low/with/key/7Gh5PG6SmrOXa87SOAlZr")
+        blynk.virtual_write(2,255)
     
     # upper temp threshold reached, deactivate the heater
     if temp > 23:
         requests.post("https://maker.ifttt.com/trigger/temp_too_high/with/key/7Gh5PG6SmrOXa87SOAlZr")
+        blynk.virtual_write(2,0)
 
 # variables for controlling the notification upon motion detection
 foo = 0
